@@ -30,6 +30,16 @@ public class EmitenteService {
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
+	public Emitente findByRazaoSocialOuNome(String razaoSocial) {
+		Optional<Emitente> obj = repository.findByRazaoSocial(razaoSocial);
+		return obj.orElseThrow(() -> new ResourceNotFoundException(razaoSocial));
+	}
+	
+	public Emitente findByCpfOuCnpj(String cpfOuCnpj) {
+		Optional<Emitente> obj = repository.findByRazaoSocial(cpfOuCnpj);
+		return obj.orElseThrow(() -> new ResourceNotFoundException(cpfOuCnpj));
+	}
+	
 	public Emitente insert(Emitente obj) {
 		return repository.save(obj);
 	}

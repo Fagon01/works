@@ -37,6 +37,18 @@ public class EmitenteResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	@GetMapping(value = "/{razaosocial}")
+	public ResponseEntity<Emitente> findByRazaSocialOuNome(@PathVariable String razaoSocialOuNome) {
+		Emitente obj = service.findByRazaoSocialOuNome(razaoSocialOuNome);
+		return ResponseEntity.ok().body(obj);
+	}
+	
+	@GetMapping(value = "/{cpfoucnpj}")
+	public ResponseEntity<Emitente> findByCpfOuCnpj(@PathVariable String cpfOuCnpj) {
+		Emitente obj = service.findByCpfOuCnpj(cpfOuCnpj);
+		return ResponseEntity.ok().body(obj);
+	}
+	
 	@PostMapping
 	public ResponseEntity<Emitente> insert(@RequestBody Emitente obj) {
 		obj = service.insert(obj);

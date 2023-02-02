@@ -30,6 +30,21 @@ public class TransportadoraService {
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
+	public Transportadora findByRazaoSocialOuNome(String razaoSocialOuNome) {
+		Optional<Transportadora> obj = repository.findByRazaoSocialOuNome(razaoSocialOuNome);
+		return obj.orElseThrow(() -> new ResourceNotFoundException(razaoSocialOuNome));
+	}
+	
+	public Transportadora findByCpfOuCnpj(String cpfOuCnpj) {
+		Optional<Transportadora> obj = repository.findByCpfOuCnpj(cpfOuCnpj);
+		return obj.orElseThrow(() -> new ResourceNotFoundException(cpfOuCnpj));
+	}
+	
+	public Transportadora findByInscEstadual(String inscEstadual) {
+		Optional<Transportadora> obj = repository.findByInscEstadual(inscEstadual);
+		return obj.orElseThrow(() -> new ResourceNotFoundException(inscEstadual));
+	}
+	
 	public Transportadora insert(Transportadora obj) {
 		return repository.save(obj);
 	}

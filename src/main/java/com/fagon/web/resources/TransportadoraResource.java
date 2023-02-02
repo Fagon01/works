@@ -37,6 +37,24 @@ public class TransportadoraResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	@GetMapping(value = "/{razaosocial}")
+	public ResponseEntity<Transportadora> findByRazaoSocialOuNome(@PathVariable String razaoSocialOuNome) {
+		Transportadora obj = service.findByRazaoSocialOuNome(razaoSocialOuNome);
+		return ResponseEntity.ok().body(obj);
+	}
+	
+	@GetMapping(value = "/{cpfoucnpj}")
+	public ResponseEntity<Transportadora> findByCpfOuCnpj(@PathVariable String cpfOuCnpj) {
+		Transportadora obj = service.findByCpfOuCnpj(cpfOuCnpj);
+		return ResponseEntity.ok().body(obj);
+	}
+	
+	@GetMapping(value = "/{inscricaoestadual}")
+	public ResponseEntity<Transportadora> findByInscEstadual(@PathVariable String inscEstadual) {
+		Transportadora obj = service.findByInscEstadual(inscEstadual);
+		return ResponseEntity.ok().body(obj);
+	}
+	
 	@PostMapping
 	public ResponseEntity<Transportadora> insert(@RequestBody Transportadora obj) {
 		obj = service.insert(obj);

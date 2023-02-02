@@ -43,6 +43,11 @@ public class ClienteService {
 		return objeto.orElse(null);
 	}
 	
+	public Cliente findByCpfOuCnpj(String cpfOuCnpj) {
+		Optional<Cliente> objeto = repository.findByRazaoSocialOuNome(cpfOuCnpj);
+		return objeto.orElse(null);
+	}
+	
 	
 	@Transactional
 	public Cliente insert(Cliente objeto) {

@@ -37,6 +37,24 @@ public class FornecedorResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	@GetMapping(value = "/{razaosocialounome}")
+	public ResponseEntity<Fornecedor> findByRazaoSocialOuNome(@PathVariable String razaoSocialOuNome) {
+		Fornecedor obj = service.findByRazaoSocialOuNome(razaoSocialOuNome);
+		return ResponseEntity.ok().body(obj);
+	}
+	
+	@GetMapping(value = "/{cpfoucnpj}")
+	public ResponseEntity<Fornecedor> findByCpfOuCnpj(@PathVariable String cpfOuCnpj) {
+		Fornecedor obj = service.findByCpfOuCnpj(cpfOuCnpj);
+		return ResponseEntity.ok().body(obj);
+	}
+	
+	@GetMapping(value = "/{inscricaoestadual}")
+	public ResponseEntity<Fornecedor> findByInscEstadual(@PathVariable String inscEstadual) {
+		Fornecedor obj = service.findByInscEstadual(inscEstadual);
+		return ResponseEntity.ok().body(obj);
+	}
+	
 	@PostMapping
 	public ResponseEntity<Fornecedor> insert(@RequestBody Fornecedor obj) {
 		obj = service.insert(obj);

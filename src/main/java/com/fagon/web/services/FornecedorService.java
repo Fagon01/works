@@ -30,6 +30,21 @@ public class FornecedorService {
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
+	public Fornecedor findByRazaoSocialOuNome(String razaoSocialOuNome) {
+		Optional<Fornecedor> obj = repository.findByRazaoSocialOuNome(razaoSocialOuNome);
+		return obj.orElseThrow(() -> new ResourceNotFoundException(razaoSocialOuNome));
+	}
+	
+	public Fornecedor findByCpfOuCnpj(String cpfOucnpj) {
+		Optional<Fornecedor> obj = repository.findByCpfOuCnpj(cpfOucnpj);
+		return obj.orElseThrow(() -> new ResourceNotFoundException(cpfOucnpj));
+	}
+	
+	public Fornecedor findByInscEstadual(String inscEstadual) {
+		Optional<Fornecedor> obj = repository.findByInscEstadual(inscEstadual);
+		return obj.orElseThrow(() -> new ResourceNotFoundException(inscEstadual));
+	}
+	
 	public Fornecedor insert(Fornecedor obj) {
 		return repository.save(obj);
 	}

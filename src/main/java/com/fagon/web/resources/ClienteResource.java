@@ -35,6 +35,12 @@ public class ClienteResource {
 		Cliente obj = service.findByNome(nome);
 		return ResponseEntity.ok().body(obj);
 	}
+	
+	@GetMapping("/{cpfoucnpj}")
+	public ResponseEntity<Cliente> findByCpfOuCnpj(@PathVariable String cpfOuCnpj) {
+		Cliente obj = service.findByNome(cpfOuCnpj);
+		return ResponseEntity.ok().body(obj);
+	}
 
 	@PostMapping
 	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objDto) {

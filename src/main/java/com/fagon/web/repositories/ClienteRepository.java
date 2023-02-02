@@ -14,4 +14,8 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 	
 	Optional<Cliente> findByRazaoSocialOuNome(String razaoSocialOuNome);
 	
+	Optional<Cliente> findByCpfOuCnpj(String cpfOuCnpj);
+	
+	Optional<Cliente> findByInscEstadual(String inscEstadual);
+	
 }

@@ -30,6 +30,16 @@ public class VendedorService {
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 	
+	public Vendedor findByRazaoSocialOuNome(String razaoSocialOuNome) {
+		Optional<Vendedor> obj = repository.findByRazaoSocialOuNome(razaoSocialOuNome);
+		return obj.orElseThrow(() -> new ResourceNotFoundException(razaoSocialOuNome));
+	}
+	
+	public Vendedor findByCpfOuCnpj(String cpfOuCnpj) {
+		Optional<Vendedor> obj = repository.findByCpfOuCnpj(cpfOuCnpj);
+		return obj.orElseThrow(() -> new ResourceNotFoundException(cpfOuCnpj));
+	}
+	
 	public Vendedor insert(Vendedor obj) {
 		return repository.save(obj);
 	}

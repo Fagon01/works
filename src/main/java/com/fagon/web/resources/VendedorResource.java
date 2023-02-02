@@ -37,6 +37,18 @@ public class VendedorResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
+	@GetMapping(value = "/{razaosocialounome}")
+	public ResponseEntity<Vendedor> findByRazaoSocialOuNome(@PathVariable String razaoSocialOuNome) {
+		Vendedor obj = service.findByRazaoSocialOuNome(razaoSocialOuNome);
+		return ResponseEntity.ok().body(obj);
+	}
+	
+	@GetMapping(value = "/{cpfoucnpj}")
+	public ResponseEntity<Vendedor> findByCpfOucnpj(@PathVariable String cpfOuCnpj) {
+		Vendedor obj = service.findByCpfOuCnpj(cpfOuCnpj);
+		return ResponseEntity.ok().body(obj);
+	}
+	
 	@PostMapping
 	public ResponseEntity<Vendedor> insert(@RequestBody Vendedor obj) {
 		obj = service.insert(obj);
